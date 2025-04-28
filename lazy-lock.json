@@ -1,4 +1,6 @@
 {
   "lazy.nvim": { "branch": "main", "commit": "7e6c863bc7563efbdd757a310d17ebc95166cef3" },
-  "nightwolf.nvim": { "branch": "main", "commit": "727ff3d862c3ab2cb5b71ccd16bcbbaf870284e5" }
+  "nightwolf.nvim": { "branch": "main", "commit": "727ff3d862c3ab2cb5b71ccd16bcbbaf870284e5" },
+  "nvim-tree.lua": { "branch": "master", "commit": "be5b788f2dc1522c73fb7afad9092331c8aebe80" },
+  "nvim-web-devicons": { "branch": "master", "commit": "50b5b06bff13a9b4eab946de7c7033649a6618a1" }
 }
