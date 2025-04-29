@@ -17,6 +17,9 @@ return {
 				local ok, api = pcall(require, "nvim-tree.api")
 				assert(ok, "api module is not found")
 
+				-- enable default mappings
+				api.config.mappings.default_on_attach(bufnr)
+
 				local function edit_or_open()
 					local node = api.tree.get_node_under_cursor()
 					if node.nodes ~= nil then
@@ -58,8 +61,6 @@ return {
 
 			end,
 		}
-
-
 	end,
 }
 
