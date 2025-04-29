@@ -1,3 +1,7 @@
+-- disable netrw, we're using nvim-tree
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
 -- Make line numbers default and relative
 vim.opt.number = true
 vim.opt.relativenumber = true
