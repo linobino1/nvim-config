@@ -8,17 +8,29 @@ return {
 	{
 		"williamboman/mason-lspconfig.nvim",
 		config = function()
-			require("mason-lspconfig").setup {
+			require("mason-lspconfig").setup({
 				ensure_installed = { "lua_ls", "ts_ls" },
-			}
+			})
 		end,
 	},
 	{
-		'neovim/nvim-lspconfig',
-		config = function()
+		"neovim/nvim-lspconfig",
+		dependencies = { "saghen/blink.cmp" },
+		opts = {
+			servers = {
+				lua_ls = {},
+				ts_ls = {},
+			},
+		},
+		config = function(_, opts)
 			local lspconfig = require("lspconfig")
-			lspconfig.lua_ls.setup {}
-			lspconfig.ts_ls.setup {}
+			for server, config in pairs(opts.servers) do
+				-- this might not be required if neovim > 0.11:
+				-- https://cmp.saghen.dev/installation.html#lsp-capabilities
+				config.capabilities = require("blink.cmp").get_lsp_capabilities(config.capabilities)
+
+				lspconfig[server].setup(config)
+			end
 		end,
 	},
 }
