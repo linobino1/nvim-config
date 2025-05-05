@@ -24,10 +24,18 @@ return {
 		},
 		config = function(_, opts)
 			local lspconfig = require("lspconfig")
+
+			local on_attach = function(client, bufnr)
+				local _opts = { silent = true, noremap = true }
+				vim.api.nvim_buf_set_keymap(bufnr, "n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", _opts)
+				vim.api.nvim_buf_set_keymap(bufnr, "n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", _opts)
+			end
 			for server, config in pairs(opts.servers) do
 				-- this might not be required if neovim > 0.11:
 				-- https://cmp.saghen.dev/installation.html#lsp-capabilities
 				config.capabilities = require("blink.cmp").get_lsp_capabilities(config.capabilities)
+
+				config.on_attach = on_attach
 
 				lspconfig[server].setup(config)
 			end
