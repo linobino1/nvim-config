@@ -29,6 +29,7 @@ return {
 				local _opts = { silent = true, noremap = true }
 				vim.api.nvim_buf_set_keymap(bufnr, "n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", _opts)
 				vim.api.nvim_buf_set_keymap(bufnr, "n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", _opts)
+				vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>r", "<cmd>lua vim.lsp.buf.rename()<CR>", _opts)
 			end
 			for server, config in pairs(opts.servers) do
 				-- this might not be required if neovim > 0.11:
