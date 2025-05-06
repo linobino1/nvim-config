@@ -2,11 +2,15 @@ return {
 	"stevearc/conform.nvim",
 	opts = {},
 	config = function()
+		local prettier = { "prettierd", "prettier", stop_after_first = true }
 		require("conform").setup({
 			formatters_by_ft = {
 				lua = { "stylua" },
-				-- Conform will run the first available formatter
-				javascript = { "prettierd", "prettier", stop_after_first = true },
+				javascript = prettier,
+				css = prettier,
+				json = prettier,
+				graphql = prettier,
+				yaml = prettier,
 			},
 			format_on_save = {
 				-- These options will be passed to conform.format()
