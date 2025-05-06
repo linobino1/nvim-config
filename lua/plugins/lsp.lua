@@ -35,7 +35,9 @@ return {
 				-- https://cmp.saghen.dev/installation.html#lsp-capabilities
 				config.capabilities = require("blink.cmp").get_lsp_capabilities(config.capabilities)
 
-				config.on_attach = on_attach
+				if not config.on_attach then
+					config.on_attach = on_attach
+				end
 
 				lspconfig[server].setup(config)
 			end

@@ -2,7 +2,9 @@ return {
 	"zbirenbaum/copilot.lua",
 	cmd = "Copilot",
 	event = "InsertEnter",
-	config = function()
-		require("copilot").setup({})
-	end,
+	build = ":Copilot auth",
+	opts = {
+		suggestion = { enabled = false },
+		panel = { enabled = false },
+	},
 }
