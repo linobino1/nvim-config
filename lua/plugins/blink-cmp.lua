@@ -25,6 +25,11 @@ return {
 				},
 			},
 		},
+		keymap = {
+			preset = "enter",
+			["<Tab>"] = { "select_next", "fallback" },
+			["<S-Tab>"] = { "select_prev", "fallback" },
+		},
 		-- TODO: install the rust implementation https://cmp.saghen.dev/configuration/fuzzy.html
 		fuzzy = { implementation = "lua" },
 	},
